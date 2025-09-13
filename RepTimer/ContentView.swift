@@ -8,6 +8,10 @@
 import SwiftUI
 import AVFoundation
 import AudioToolbox
+import UIKit
+#if canImport(ActivityKit)
+import ActivityKit
+#endif
 
 struct AnimatedDigit: View {
     let digit: Int
@@ -68,6 +72,9 @@ struct ContentView: View {
     @State private var displayedSeconds1: Int = 0 // First digit of seconds
     @State private var displayedSeconds2: Int = 0 // Second digit of seconds
     @Environment(\.colorScheme) private var colorScheme
+    
+    // Live Activity Manager
+    @StateObject private var activityManager = ActivityManager.shared
     
     // Adaptive colors based on appearance mode
     private var adaptiveForeground: Color {
@@ -217,7 +224,11 @@ struct ContentView: View {
             .disabled(isRunning)
         }
         .onDisappear {
-            stopTimer()
+            // Don't stop timer when app goes to background - let live activity continue
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            // Sync timer state when app comes to foreground
+            syncTimerWithLiveActivity()
         }
     }
     
@@ -231,6 +242,11 @@ struct ContentView: View {
         let newTime = timeRemaining + seconds
         timeRemaining = max(0, newTime) // Don't allow negative time
         updateDisplayedDigits()
+        
+        // Update Live Activity if running
+        if #available(iOS 16.1, *), isRunning {
+            activityManager.updateLiveActivity(timeRemaining: timeRemaining, isRunning: true)
+        }
     }
     
     private func toggleTimer() {
@@ -245,9 +261,20 @@ struct ContentView: View {
         guard timeRemaining > 0 else { return }
         
         isRunning = true
+        
+        // Start Live Activity if supported
+        if #available(iOS 16.1, *), activityManager.isLiveActivitySupported {
+            activityManager.startLiveActivity(totalTime: defaultRestTime, timeRemaining: timeRemaining)
+        }
+        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
             if timeRemaining > 0 {
                 timeRemaining -= 1
+                
+                // Update Live Activity
+                if #available(iOS 16.1, *) {
+                    activityManager.updateLiveActivity(timeRemaining: timeRemaining, isRunning: true)
+                }
             } else {
                 stopTimer()
                 playChime()
@@ -260,6 +287,11 @@ struct ContentView: View {
         isRunning = false
         timer?.invalidate()
         timer = nil
+        
+        // End Live Activity
+        if #available(iOS 16.1, *) {
+            activityManager.endLiveActivity()
+        }
     }
     
     private func setupAudioSession() {
@@ -307,6 +339,44 @@ struct ContentView: View {
         displayedMinutes2 = minutes % 10
         displayedSeconds1 = seconds / 10
         displayedSeconds2 = seconds % 10
+    }
+    
+    private func syncTimerWithLiveActivity() {
+        if #available(iOS 16.1, *), let activity = activityManager.currentActivity {
+            let now = Date()
+            
+            // Check if timer should have finished
+            if now >= activity.contentState.endTime && activity.contentState.isRunning {
+                // Timer finished while app was in background
+                stopTimer()
+                playChime()
+                timeRemaining = defaultRestTime
+                updateDisplayedDigits()
+                return
+            }
+            
+            // Update timer based on live activity state
+            if activity.contentState.isRunning {
+                let remainingTime = max(0, Int(activity.contentState.endTime.timeIntervalSince(now)))
+                timeRemaining = remainingTime
+                updateDisplayedDigits()
+                
+                if timeRemaining > 0 && !isRunning {
+                    // Restart the app timer to sync with live activity
+                    isRunning = true
+                    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                        let currentRemaining = max(0, Int(activity.contentState.endTime.timeIntervalSince(Date())))
+                        timeRemaining = currentRemaining
+                        
+                        if timeRemaining <= 0 {
+                            stopTimer()
+                            playChime()
+                            timeRemaining = defaultRestTime
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

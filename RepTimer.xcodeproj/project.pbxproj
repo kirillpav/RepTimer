@@ -6,7 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E83FD6FC2E75F26800478634 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83FD6FB2E75F26800478634 /* WidgetKit.framework */; };
+		E83FD6FE2E75F26800478634 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E83FD6FD2E75F26800478634 /* SwiftUI.framework */; };
+		E83FD70F2E75F26900478634 /* RepTimerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E83FD6F92E75F26800478634 /* RepTimerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
+		E83FD70D2E75F26900478634 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E86C8A462E6F73E40011A223 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E83FD6F82E75F26800478634;
+			remoteInfo = RepTimerWidgetExtension;
+		};
 		E86C8A5C2E6F73E50011A223 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E86C8A462E6F73E40011A223 /* Project object */;
@@ -23,13 +36,48 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E83FD7102E75F26900478634 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E83FD70F2E75F26900478634 /* RepTimerWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E83FD6F92E75F26800478634 /* RepTimerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RepTimerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E83FD6FB2E75F26800478634 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		E83FD6FD2E75F26800478634 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		E86C8A4E2E6F73E40011A223 /* RepTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86C8A5B2E6F73E50011A223 /* RepTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E86C8A652E6F73E50011A223 /* RepTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E83FD7132E75F26900478634 /* Exceptions for "RepTimerWidget" folder in "RepTimerWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E83FD6F82E75F26800478634 /* RepTimerWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		E83FD6FF2E75F26800478634 /* RepTimerWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E83FD7132E75F26900478634 /* Exceptions for "RepTimerWidget" folder in "RepTimerWidgetExtension" target */,
+			);
+			path = RepTimerWidget;
+			sourceTree = "<group>";
+		};
 		E86C8A502E6F73E40011A223 /* RepTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RepTimer;
@@ -48,6 +96,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E83FD6F62E75F26800478634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E83FD6FE2E75F26800478634 /* SwiftUI.framework in Frameworks */,
+				E83FD6FC2E75F26800478634 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E86C8A4B2E6F73E40011A223 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,12 +129,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E83FD6FA2E75F26800478634 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E83FD6FB2E75F26800478634 /* WidgetKit.framework */,
+				E83FD6FD2E75F26800478634 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E86C8A452E6F73E40011A223 = {
 			isa = PBXGroup;
 			children = (
 				E86C8A502E6F73E40011A223 /* RepTimer */,
 				E86C8A5E2E6F73E50011A223 /* RepTimerTests */,
 				E86C8A682E6F73E50011A223 /* RepTimerUITests */,
+				E83FD6FF2E75F26800478634 /* RepTimerWidget */,
+				E83FD6FA2E75F26800478634 /* Frameworks */,
 				E86C8A4F2E6F73E40011A223 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +156,7 @@
 				E86C8A4E2E6F73E40011A223 /* RepTimer.app */,
 				E86C8A5B2E6F73E50011A223 /* RepTimerTests.xctest */,
 				E86C8A652E6F73E50011A223 /* RepTimerUITests.xctest */,
+				E83FD6F92E75F26800478634 /* RepTimerWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +164,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E83FD6F82E75F26800478634 /* RepTimerWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E83FD7142E75F26900478634 /* Build configuration list for PBXNativeTarget "RepTimerWidgetExtension" */;
+			buildPhases = (
+				E83FD6F52E75F26800478634 /* Sources */,
+				E83FD6F62E75F26800478634 /* Frameworks */,
+				E83FD6F72E75F26800478634 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E83FD6FF2E75F26800478634 /* RepTimerWidget */,
+			);
+			name = RepTimerWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = RepTimerWidgetExtension;
+			productReference = E83FD6F92E75F26800478634 /* RepTimerWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		E86C8A4D2E6F73E40011A223 /* RepTimer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E86C8A6F2E6F73E50011A223 /* Build configuration list for PBXNativeTarget "RepTimer" */;
@@ -102,10 +193,12 @@
 				E86C8A4A2E6F73E40011A223 /* Sources */,
 				E86C8A4B2E6F73E40011A223 /* Frameworks */,
 				E86C8A4C2E6F73E40011A223 /* Resources */,
+				E83FD7102E75F26900478634 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E83FD70E2E75F26900478634 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				E86C8A502E6F73E40011A223 /* RepTimer */,
@@ -173,6 +266,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					E83FD6F82E75F26800478634 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					E86C8A4D2E6F73E40011A223 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -203,11 +299,19 @@
 				E86C8A4D2E6F73E40011A223 /* RepTimer */,
 				E86C8A5A2E6F73E50011A223 /* RepTimerTests */,
 				E86C8A642E6F73E50011A223 /* RepTimerUITests */,
+				E83FD6F82E75F26800478634 /* RepTimerWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E83FD6F72E75F26800478634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E86C8A4C2E6F73E40011A223 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +336,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E83FD6F52E75F26800478634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E86C8A4A2E6F73E40011A223 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +367,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E83FD70E2E75F26900478634 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E83FD6F82E75F26800478634 /* RepTimerWidgetExtension */;
+			targetProxy = E83FD70D2E75F26900478634 /* PBXContainerItemProxy */;
+		};
 		E86C8A5D2E6F73E50011A223 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E86C8A4D2E6F73E40011A223 /* RepTimer */;
@@ -269,6 +385,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E83FD7112E75F26900478634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9QA9K4TQ94;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RepTimerWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RepTimerWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirillpav.RepTimer.RepTimerWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E83FD7122E75F26900478634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9QA9K4TQ94;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RepTimerWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RepTimerWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kirillpav.RepTimer.RepTimerWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		E86C8A6D2E6F73E50011A223 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -407,6 +577,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				"INFOPLIST_KEY_NSSupportsLiveActivities" = YES;
+				"INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates" = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,6 +613,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				"INFOPLIST_KEY_NSSupportsLiveActivities" = YES;
+				"INFOPLIST_KEY_NSSupportsLiveActivitiesFrequentUpdates" = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,6 +707,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E83FD7142E75F26900478634 /* Build configuration list for PBXNativeTarget "RepTimerWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E83FD7112E75F26900478634 /* Debug */,
+				E83FD7122E75F26900478634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E86C8A492E6F73E40011A223 /* Build configuration list for PBXProject "RepTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
