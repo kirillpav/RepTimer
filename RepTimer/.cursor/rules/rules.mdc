@@ -1,0 +1,16 @@
+---
+description:
+  Cursor rules for a super-simple iOS SwiftUI timer app using a clean MVVM structure.
+  Keep code minimal, readable, and testable. Avoid over-engineering.
+globs:
+alwaysApply: true
+---
+
+# IGNORE ALL LINTING ERRORS
+
+# MVVM Rules
+
+- **Views**: Declarative UI only. No timers, no business logic, no singletons.
+- **ViewModels**: `ObservableObject` with `@Published` state, pure logic, 100% testable. No UIKit.
+- **Models**: `struct` value types; no behavior beyond basic helpers.
+- **Services**: Protocol-first. Inject via initializers. No global state.
